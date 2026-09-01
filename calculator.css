@@ -32,8 +32,45 @@
                 /* inner depth */
                 inset -2px -2px 4px rgba(255, 255, 255, 0.1);
             /* inner highlight */
+}
 
 
 
 
+
+        .display input {
+            width: 360px;
+            border: none;
+            outline: none;
+            padding: 20px;
+            /* margin: 10px; */
+            background: transparent;
+            color: #fff;
+            font-size: 48px;
+            text-align: right;
+            cursor: pointer;
         }
+
+        input::placeholder {
+            color: #fff;
+        }
+
+        .display {
+            /* background-color: #FFA500; */
+            background-color: #008000;
+            /* width: 95%; */
+            /* margin-right: 30px; */
+            height: 85px;
+            border-radius: 12px;
+        }
+
+        .display input {
+            /* width: 0%; */
+            border: none;
+            outline: none;
+            background: transparent;
+            color: #fff;
+            font-size: 48px;
+            text-align: right;
+}
+
