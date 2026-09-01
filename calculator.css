@@ -1,0 +1,39 @@
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+            letter-spacing: 1px;
+        }
+
+        body {
+            min-height: 100vh;
+            max-width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(45deg, black, #3a4452);
+        }
+
+        .calculator {
+            padding: 10px;
+            box-shadow: 5px solid rgb(14, 13, 13);
+            border-radius: 15px;
+            /* border: 3px solid white; */
+
+            background: #1e1e1e;
+            /* adds depth */
+            box-shadow:
+                8px 8px 18px rgba(0, 0, 0, 0.8),
+                /* outside shadow */
+                -5px -5px 15px rgba(255, 255, 255, 0.08),
+                /* soft highlight */
+                inset 2px 2px 4px rgba(0, 0, 0, 0.6),
+                /* inner depth */
+                inset -2px -2px 4px rgba(255, 255, 255, 0.1);
+            /* inner highlight */
+
+
+
+
+        }
