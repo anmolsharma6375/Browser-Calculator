@@ -74,3 +74,66 @@
             text-align: right;
 }
 
+
+
+ input::placeholder {
+            color: #fff;
+        }
+
+        /* ---------- 3D BUTTON STYLE ---------- */
+
+        button {
+            width: 70px;
+            height: 70px;
+            margin: 10px;
+            font-size: 25px;
+            font-weight: 600;
+
+            background: linear-gradient(145deg, #24282e, #17191d);
+            border-radius: 14px;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+
+            box-shadow:
+                5px 5px 10px rgba(0, 0, 0, 0.8),
+                -3px -3px 6px rgba(255, 255, 255, 0.05);
+
+            transition: all 0.15s ease;
+        }
+
+        /* Hover effect */
+        button:hover {
+            background: linear-gradient(145deg, #2b2f36, #1b1d21);
+        }
+
+        /* Pressed 3D button */
+        button:active {
+            transform: translateY(4px);
+            box-shadow:
+                inset 3px 3px 8px rgba(0, 0, 0, 0.8),
+                inset -2px -2px 5px rgba(255, 255, 255, 0.08);
+        }
+
+        /* Operators */
+        .opr {
+            color: #f7ff66;
+        }
+
+        /* Equal button special */
+        #eqBtn {
+            background: linear-gradient(145deg, #ff5400, #cc4400);
+            font-weight: 900;
+            color: #fff;
+        }
+
+        #eqBtn:hover {
+            background: linear-gradient(145deg, #ff6a1a, #e04d00);
+        }
+
+        #eqBtn:active {
+            transform: translateY(4px);
+            box-shadow:
+                inset 3px 3px 8px rgba(0, 0, 0, 0.8),
+                inset -2px -2px 6px rgba(255, 255, 255, 0.1);
+        }
