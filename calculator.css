@@ -63,3 +63,89 @@
   @media (prefers-reduced-motion: reduce) {
     .orb { animation: none; }
   }
+
+
+
+
+
+
+
+ .calculator {
+    position: relative;
+    isolation: isolate;
+    z-index: 1;
+    width: 340px;
+    max-width: 100%;
+    padding: 24px;
+    border-radius: 40px;
+
+    background:
+      /* top-left specular sheen */
+      linear-gradient(135deg, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0.06) 22%, rgba(255,255,255,0.02) 45%),
+      /* bottom-right deep glass tint */
+      linear-gradient(315deg, rgba(10,20,40,0.10) 0%, rgba(10,20,40,0.02) 35%),
+      /* base fill so it doesn't disappear entirely */
+      rgba(255,255,255,0.05);
+
+    backdrop-filter: blur(18px) saturate(180%) brightness(1.05);
+    -webkit-backdrop-filter: blur(18px) saturate(180%) brightness(1.05);
+
+    /* frosted edge: bright hairline top-left, dark hairline bottom-right */
+    border-top: 1px solid rgba(255,255,255,0.85);
+    border-left: 1px solid rgba(255,255,255,0.6);
+    border-right: 1px solid rgba(10,20,40,0.25);
+    border-bottom: 1px solid rgba(10,20,40,0.3);
+
+    box-shadow:
+      /* inner rim light — reads as glass thickness catching light */
+      inset 0 1px 1px rgba(255,255,255,0.9),
+      inset 0 -1px 1px rgba(10,20,40,0.15),
+      inset 8px 8px 24px rgba(255,255,255,0.06),
+      inset -10px -14px 30px rgba(10,20,40,0.10),
+      /* depth stack — simulates real glass thickness under studio light */
+      0 2px 0 rgba(255,255,255,0.4),
+      0 10px 20px rgba(6,10,20,0.28),
+      0 30px 60px rgba(6,10,20,0.38),
+      0 60px 90px rgba(6,10,20,0.28);
+  }
+
+  /* polished metallic gold ring — conic-gradient masked to a ring shape */
+  .calculator::before {
+    content: "";
+    position: absolute;
+    inset: -8px;
+    border-radius: 48px;
+    padding: 8px;
+    background: conic-gradient(
+      from 200deg,
+      var(--gold-3) 0deg,
+      var(--gold-1) 45deg,
+      var(--gold-4) 100deg,
+      var(--gold-5) 150deg,
+      var(--gold-3) 210deg,
+      var(--gold-2) 270deg,
+      var(--gold-1) 320deg,
+      var(--gold-3) 360deg
+    );
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    box-shadow:
+      0 0 0 1px rgba(255,255,255,0.25),
+      0 18px 40px rgba(184,134,46,0.35);
+    z-index: -1;
+  }
+
+  /* contact shadow on the "floor" beneath the glass */
+  .calculator::after {
+    content: "";
+    position: absolute;
+    left: 8%;
+    right: 8%;
+    bottom: -34px;
+    height: 30px;
+    border-radius: 50%;
+    background: radial-gradient(ellipse, rgba(0,0,0,0.45) 0%, transparent 72%);
+    filter: blur(4px);
+    z-index: -2;
+  }
