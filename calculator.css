@@ -1,139 +1,65 @@
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, Helvetica, sans-serif;
-            letter-spacing: 1px;
-        }
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap');
 
-        body {
-            min-height: 100vh;
-            max-width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: linear-gradient(45deg, black, #3a4452);
-        }
+  /* =========================================================
+     TOKENS
+     Gold metallic border: light -> base -> deep, for a
+     polished rotating-light ring effect via conic-gradient.
+     Glass fill: layered whites at very low opacity so the
+     blurred backdrop scene is genuinely visible through it.
+     ========================================================= */
+  :root {
+    --gold-1: #FFF6DC;
+    --gold-2: #F2CE7C;
+    --gold-3: #D9A53E;
+    --gold-4: #B8862E;
+    --gold-5: #6B4712;
+    --sky-1: #EAF8FF;
+    --sky-2: #CFEBFB;
+    --sky-3: #A9DBF5;
+    --navy: #123059;
+    --navy-deep: #0A1E3D;
+  }
 
-        .calculator {
-            padding: 10px;
-            box-shadow: 5px solid rgb(14, 13, 13);
-            border-radius: 15px;
-            /* border: 3px solid white; */
+  * { box-sizing: border-box; }
+  html, body { height: 100%; }
 
-            background: #1e1e1e;
-            /* adds depth */
-            box-shadow:
-                8px 8px 18px rgba(0, 0, 0, 0.8),
-                /* outside shadow */
-                -5px -5px 15px rgba(255, 255, 255, 0.08),
-                /* soft highlight */
-                inset 2px 2px 4px rgba(0, 0, 0, 0.6),
-                /* inner depth */
-                inset -2px -2px 4px rgba(255, 255, 255, 0.1);
-            /* inner highlight */
-}
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Outfit', -apple-system, sans-serif;
+    padding: 48px 20px;
+    /* a scene behind the glass — this is what proves true transparency */
+    background:
+      radial-gradient(circle at 18% 15%, rgba(120, 190, 255, 0.35), transparent 40%),
+      radial-gradient(circle at 85% 20%, rgba(217, 165, 62, 0.30), transparent 42%),
+      radial-gradient(circle at 30% 85%, rgba(80, 220, 170, 0.25), transparent 45%),
+      radial-gradient(circle at 90% 90%, rgba(190, 120, 255, 0.22), transparent 45%),
+      linear-gradient(160deg, #0E1526 0%, #060A14 100%);
+    overflow: hidden;
+  }
 
+  /* soft floating orbs that drift behind the glass, so refraction reads clearly */
+  .orb {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(2px);
+    opacity: 0.85;
+    animation: drift 14s ease-in-out infinite;
+    z-index: 0;
+  }
+  .orb:nth-child(1) { width: 140px; height: 140px; left: 8%;  top: 22%; background: radial-gradient(circle at 35% 30%, #FFE8A8, #D9A53E 70%); animation-duration: 16s; }
+  .orb:nth-child(2) { width: 90px;  height: 90px;  right: 12%; top: 12%; background: radial-gradient(circle at 35% 30%, #BFE9FF, #4FA8E0 70%); animation-duration: 12s; animation-delay: -3s; }
+  .orb:nth-child(3) { width: 110px; height: 110px; right: 18%; bottom: 14%; background: radial-gradient(circle at 35% 30%, #C9FFEA, #3FBF8F 70%); animation-duration: 18s; animation-delay: -6s; }
+  .orb:nth-child(4) { width: 70px;  height: 70px;  left: 14%;  bottom: 18%; background: radial-gradient(circle at 35% 30%, #F1D6FF, #A968E0 70%); animation-duration: 13s; animation-delay: -1.5s; }
 
+  @keyframes drift {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(18px, -22px); }
+  }
 
-
-
-        .display input {
-            width: 360px;
-            border: none;
-            outline: none;
-            padding: 20px;
-            /* margin: 10px; */
-            background: transparent;
-            color: #fff;
-            font-size: 48px;
-            text-align: right;
-            cursor: pointer;
-        }
-
-        input::placeholder {
-            color: #fff;
-        }
-
-        .display {
-            /* background-color: #FFA500; */
-            background-color: #008000;
-            /* width: 95%; */
-            /* margin-right: 30px; */
-            height: 85px;
-            border-radius: 12px;
-        }
-
-        .display input {
-            /* width: 0%; */
-            border: none;
-            outline: none;
-            background: transparent;
-            color: #fff;
-            font-size: 48px;
-            text-align: right;
-}
-
-
-
- input::placeholder {
-            color: #fff;
-        }
-
-        /* ---------- 3D BUTTON STYLE ---------- */
-
-        button {
-            width: 70px;
-            height: 70px;
-            margin: 10px;
-            font-size: 25px;
-            font-weight: 600;
-
-            background: linear-gradient(145deg, #24282e, #17191d);
-            border-radius: 14px;
-            border: none;
-            color: #fff;
-            cursor: pointer;
-
-            box-shadow:
-                5px 5px 10px rgba(0, 0, 0, 0.8),
-                -3px -3px 6px rgba(255, 255, 255, 0.05);
-
-            transition: all 0.15s ease;
-        }
-
-        /* Hover effect */
-        button:hover {
-            background: linear-gradient(145deg, #2b2f36, #1b1d21);
-        }
-
-        /* Pressed 3D button */
-        button:active {
-            transform: translateY(4px);
-            box-shadow:
-                inset 3px 3px 8px rgba(0, 0, 0, 0.8),
-                inset -2px -2px 5px rgba(255, 255, 255, 0.08);
-        }
-
-        /* Operators */
-        .opr {
-            color: #f7ff66;
-        }
-
-        /* Equal button special */
-        #eqBtn {
-            background: linear-gradient(145deg, #ff5400, #cc4400);
-            font-weight: 900;
-            color: #fff;
-        }
-
-        #eqBtn:hover {
-            background: linear-gradient(145deg, #ff6a1a, #e04d00);
-        }
-
-        #eqBtn:active {
-            transform: translateY(4px);
-            box-shadow:
-                inset 3px 3px 8px rgba(0, 0, 0, 0.8),
-                inset -2px -2px 6px rgba(255, 255, 255, 0.1);
-        }
+  @media (prefers-reduced-motion: reduce) {
+    .orb { animation: none; }
+  }
