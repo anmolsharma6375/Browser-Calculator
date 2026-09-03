@@ -149,3 +149,61 @@
     filter: blur(4px);
     z-index: -2;
   }
+
+
+
+/* =========================================================
+     DISPLAY — luminous light-blue glass panel
+     ========================================================= */
+  .display {
+    position: relative;
+    margin-bottom: 20px;
+    padding: 32px 22px 16px;
+    border-radius: 24px;
+    background: linear-gradient(160deg, var(--sky-1) 0%, var(--sky-2) 55%, var(--sky-3) 100%);
+    box-shadow:
+      inset 0 2px 4px rgba(255,255,255,0.95),
+      inset 0 -5px 12px rgba(18,48,89,0.18),
+      0 0 0 1px rgba(255,255,255,0.6),
+      0 0 34px rgba(120,190,255,0.55),
+      0 10px 22px rgba(6,10,20,0.3);
+    overflow: hidden;
+  }
+  .display::before {
+    content: "FINANCE";
+    position: absolute;
+    top: 12px;
+    left: 22px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    color: #1C6FE0;
+  }
+  .display::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -22%;
+    width: 55%;
+    height: 100%;
+    background: linear-gradient(115deg, rgba(255,255,255,0.7), rgba(255,255,255,0) 60%);
+    transform: skewX(-18deg);
+    pointer-events: none;
+  }
+  .history {
+    min-height: 16px;
+    text-align: right;
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(18,48,89,0.5);
+    margin-bottom: 2px;
+  }
+  #inputBox {
+    width: 100%;
+    text-align: right;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 800;
+    font-size: 34px;
+    color: var(--navy-deep);
+    word-break: break-all;
+  }
