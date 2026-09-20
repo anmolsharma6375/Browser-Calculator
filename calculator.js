@@ -1,3 +1,4 @@
+
 const inputBox = document.getElementById('inputBox');
 const historyBox = document.getElementById('historyBox');
 let expression = '0';
